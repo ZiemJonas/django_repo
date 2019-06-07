@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+<!-- TITLE BLOCK-->
+{% block title_block %}
+    <title>Django|Login</title>
+{% endblock  %}
+
+<!-- Body block -->
+{% block body_block %}
+    <div class="card">
+        <h1>LOGIN</h1>
+        <form action="{% url 'app_five:user_login' %}" method="POST">
+            {% csrf_token %}
+
+            <label for="username">Username:</label>
+            <input type="text" name="user1name" placeholder="Enter Username">
+
+            <label for="password">Password:</label>
+            <input type="password" name="password">
+
+            <input type="submit" class="btn btn-primary" value="Login">
+        </form>
+    </div>
+{% endblock %}
+

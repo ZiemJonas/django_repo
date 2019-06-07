@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+<!-- TITLE BLOCK-->
+{% block title_block %}
+    <title>Django</title>
+{% endblock  %}
+
+
+<!-- Body block -->
+{% block body_block %}
+
+    <div class="card">
+        {% if registered %}
+            <div class="card-panel">
+                <h1>User registered <br> <h3>Thank You!!!</h3></h1>
+            </div>       
+        {% else %}
+            <h1>Register Here</h1>
+            <h2>Fill out the form: </h2>
+
+            <form enctype="multipart/form-data" method="POST" >
+                {% csrf_token %}
+               {{ user_form.as_p }}
+               {{ profile_form.as_p }}
+
+                <input type="submit" name="submit" value="Register">
+            </form>
+
+        {% endif %}          
+    </div>
+
+{% endblock %}
+
